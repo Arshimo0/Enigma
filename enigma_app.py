@@ -8,7 +8,17 @@ root.title("Enigma Machine Simulator")
 root.geometry("1920x1000+0+0")
 
 # create the functions
+def reset():
+    key_entry.delete(0, END)
+    plaintext_text.delete(1.0, END)
+    ciphertext_text.delete(1.0, END)
+    decrypted_text.delete(1.0, END)
 
+def iexit():
+    iexit = tkinter.messagebox.askyesno("Enigma Machine Simulator", "Confirm if you want to exit")
+    if iexit > 0:
+        root.destroy()
+        return
 
     
 # create widget
