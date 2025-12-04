@@ -20,7 +20,32 @@ def iexit():
         root.destroy()
         return
 
-    
+def xor_encrypt_decrypt(text,key):
+    encrypted = ''.join(chr(ord(x) ^ key)for x in text)
+    return encrypted
+
+def encrypt():
+    try:
+        key = int(key_entry.get())
+        plaintext = plaintext_text.get(1.0, END).strip()
+        encrypted = xor_encrypt_decrypt(plaintext, key)
+        ciphertext_text.delete(1.0, END)
+        ciphertext_text.insert(END, encrypted)
+
+    except Exception as e:
+        messagebox.showerror('Error',str(e))
+
+def decrypt():
+    try:
+        key = int(key_entry.get())
+        ciphertext = ciphertext_text.get(1.0, END).strip()
+        decrypted = xor_encrypt_decrypt(ciphertext, key)
+        decrypted_text.delete(1.0, END)
+        decrypted_text.insert(END, decrypted)
+
+    except Exception as e:
+        messagebox.showerror('Error',str(e))
+        
 # create widget
 key_label = Label(root, font=('arial', 24, 'bold'), text="Enter Key:")
 key_label.pack()
