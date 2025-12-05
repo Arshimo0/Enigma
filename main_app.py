@@ -46,6 +46,18 @@ class EnigmaApp(ctk.CTk):
         self.result_area = ctk.CTkTextbox(self, height=150)
         self.result_area.pack(padx=20, pady=5, fill="x")
 
+        # 6. Bottom Buttons Frame (to keep them side-by-side)
+        self.bottom_frame = ctk.CTkFrame(self, fg_color="transparent")
+        self.bottom_frame.pack(pady=10)
+
+        # Reset Button (Gray color)
+        self.btn_reset = ctk.CTkButton(self.bottom_frame, text="Reset", command=self.reset_fields)
+        self.btn_reset.pack(side="left", padx=10)
+
+        # Exit Button (Red color)
+        self.btn_exit = ctk.CTkButton(self.bottom_frame, text="Exit", command=self.exit_app) 
+        self.btn_exit.pack(side="left", padx=10)
+
     def run_cipher(self):
         key = self.key_entry.get()
         text = self.text_area.get("1.0", "end-1c")
@@ -56,8 +68,21 @@ class EnigmaApp(ctk.CTk):
             messagebox.showerror("Error", "Key must be a number!")
         else:
             self.result_area.delete("1.0", "end") 
-            self.result_area.insert("1.0", result) 
+            self.result_area.insert("1.0", result)
+             
+    def reset_fields(self):
+        # Clear the Key entry
+        self.key_entry.delete(0, "end")
+        # Clear the Text Input
+        self.text_area.delete("1.0", "end")
+        # Clear the Result Input
+        self.result_area.delete("1.0", "end")
 
+    def exit_app(self):
+        # Ask for confirmation
+        confirm = messagebox.askyesno("Exit", "Are you sure you want to exit?")
+        if confirm:
+            self.destroy()
 if __name__ == "__main__":
     app = EnigmaApp()
     app.mainloop()
