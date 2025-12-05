@@ -2,8 +2,6 @@
 
 A secure, web-based encryption tool capable of encrypting and decrypting messages using bitwise XOR logic. This project demonstrates full-stack Python development, separating business logic from the presentation layer, and includes containerization for easy deployment.
 
-(Note: Upload your screenshot as 'https://www.google.com/search?q=demo.png' to your repository to see it here)
-
 🚀 Features
 
 XOR Encryption Engine: Custom-built logic class to handle bitwise operations.
@@ -29,12 +27,12 @@ Architecture: Separation of Concerns (Logic vs. UI)
 📂 Project Structure
 
 /Enigma
-├── app.py              # The Web Server (Flask Controller)
-├── logic.py            # The "Brain" (Pure Python Logic)
-├── Dockerfile          # Container configuration
-├── requirements.txt    # Dependencies list
+├── app.py              
+├── logic.py            
+├── Dockerfile          
+├── requirements.txt    
 └── templates/
-    └── index.html      # The Frontend Interface
+    └── index.html      
 
 
 🔧 Installation & Usage
